@@ -13,14 +13,14 @@ import StatePatternCircusLion.Lion;
 public class Main {
 
     public static void main(String[] args) {
-
+        System.out.println("Adapter pattern -------------");
         //TurkeyAdapter
         WildTurkey turkey = new WildTurkey();
         Duck turkeyAdapter = new TurkeyAdapter(turkey);
 
         turkeyAdapter.fly();
         turkeyAdapter.quack();
-
+        System.out.println("singleton pattern------------------");
         //Singleton
         Rhino rhino = Rhino.getWhiteRhino("Bobby");
         String s = rhino.getName();
@@ -30,7 +30,7 @@ public class Main {
 
         System.out.println(s);
         System.out.println(t);
-
+        System.out.println("observer pattern-----------------");
         //Observer pattern
         Subscriber hans = new Subscriber("Hans");
         Subscriber tom = new Subscriber("Tom");
@@ -42,7 +42,7 @@ public class Main {
         subs.registerSubscriber(jerry);
 
         subs.update();
-
+        System.out.println("command pattern------------");
         //Command Pattern
         Remote remote = new Remote();
         BirdFeeder birdFeeder = new BirdFeeder();
@@ -61,7 +61,7 @@ public class Main {
 
         remote.pressOffCommand(3);
         remote.pressOffCommand(4);
-
+        System.out.println("state pattern--------------");
         //state pattern
         Lion lion = new Lion();
         lion.command();
