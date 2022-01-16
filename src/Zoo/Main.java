@@ -4,11 +4,15 @@ import AdaptorPatternBirds.Duck;
 import AdaptorPatternBirds.TurkeyAdapter;
 import AdaptorPatternBirds.WildTurkey;
 import CommandPatternAnimalFeeder.*;
+import CompositePatternCafeteria.Menu;
+import CompositePatternCafeteria.MenuComponent;
+import CompositePatternCafeteria.MenuItem;
 import ObserverPatternNewsletter.SubList;
 import ObserverPatternNewsletter.Subscriber;
 import ObserverPatternNewsletter.ZooNews;
 import SingletonPatternRhino.Rhino;
 import StatePatternCircusLion.Lion;
+import TrategyPatternFrogs.*;
 
 public class Main {
 
@@ -68,5 +72,30 @@ public class Main {
         lion.feed();
         lion.command();
         lion.whip();
+
+        System.out.println("composite pattern-------------");
+        //somewhat composite pattern (only 1 branch deep due to laziness)
+        Menu zooCafeteria = new Menu();
+        MenuItem spaghett = new MenuItem(1, "Spaghetti");
+        MenuItem penguin = new MenuItem(2, "Pinguin drumsticks");
+        zooCafeteria.addComponent(spaghett);
+        zooCafeteria.addComponent(penguin);
+        zooCafeteria.getChild();
+        penguin.getPrice();
+
+
+        System.out.println("strategy pattern---------------");
+        //Strategy Pattern
+        Jump j = new Jump();
+        Ribbit ribbit = new Ribbit();
+        NoJump cripple = new NoJump();
+        Mute mute = new Mute();
+
+        Frog frog = new Frog(ribbit, j);
+        Frog muteCripple = new Frog(mute, cripple);
+        frog.perform();
+        muteCripple.perform();
+        muteCripple.setCallBehavior(ribbit);
+        muteCripple.perform();
     }
 }
