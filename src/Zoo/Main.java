@@ -81,7 +81,7 @@ public class Main {
         zooCafeteria.addComponent(spaghett);
         zooCafeteria.addComponent(penguin);
         zooCafeteria.getChild();
-        penguin.getPrice();
+        System.out.println(penguin.getPrice());;
 
 
         System.out.println("strategy pattern---------------");
